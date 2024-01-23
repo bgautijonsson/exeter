@@ -1,0 +1,57 @@
+---
+title: "Improved 21st century projections of sub-daily extreme precipitation by spatio-temporal recalibration"
+subtitle: "Generalized Extreme Value distributions and Gaussian copulas"
+author: "Brynjólfur Gauti Guðrúnar Jónsson"
+institute: "Statistics, Faculty of Physical Sciences"
+
+format: 
+  revealjs:
+    theme: theme.scss
+    auto-stretch: true
+    view-distance: 5
+    simplemenu:
+      flat: true
+      barhtml:
+        header: "<div class='menubar mb-10'><ul class='menu'></ul><div>"
+      scale: 0.67
+
+
+revealjs-plugins:
+  - simplemenu
+---
+
+
+```{r setup, message=FALSE}
+library(tidyverse)
+library(bggjphd)
+library(metill)
+library(sf)
+
+theme_set(theme_bggj())
+```
+
+## PhD {data-name="About Me"}
+
+## Interests
+
+## Extreme Precipitation {data-name="Background"}
+
+## Generalized Extreme Value Distribution
+
+## Spatial Models
+
+## Copulas
+
+## UKCP {data-name="Data"}
+
+## Other Stuff
+
+## I.i.d. {data-name="Models"}
+
+## AR(1)
+
+## Spatial effects {data-name="Results"}
+
+## Other results
+
+## Stuff happened {data-name="Discussion"}
