@@ -342,17 +342,181 @@ Brynjólfur Gauti Guðrúnar Jónsson
 </div>
 
 </section>
-<section id="phd" class="slide level2" data-name="About Me">
-<h2>PhD</h2>
+<section id="about-me" class="slide level2" data-name="About Me">
+<h2>About me</h2>
 </section>
 <section id="interests" class="slide level2">
 <h2>Interests</h2>
+<div class="quarto-layout-panel" data-layout="[[1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="images/binni_rugby.jpg"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="images/binni_metill.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="statistics" class="slide level2">
+<h2>Statistics</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="images/binni_veggspjald.jpg"></p>
+</div><div class="column" style="width:55%;">
+<p><img data-src="images/covid_dashboard.png"></p>
+<p><img data-src="images/stancon.png"></p>
+</div>
+</div>
 </section>
 <section id="extreme-precipitation" class="slide level2" data-name="Background">
 <h2>Extreme Precipitation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/phd_nafn.png" class="m-0 p-0 quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/flod1.jpg" class="mt-0 pt-0 quarto-figure quarto-figure-center" width="450"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/flod2.jpg" class="mt-0 pt-0 quarto-figure quarto-figure-center" width="450"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="united-kingdom-climate-projections" class="slide level2">
+<h2>United Kingdom Climate Projections</h2>
+
+<img data-src="images/max_precip.png" class="quarto-figure quarto-figure-center r-stretch"><p><span class="math display">\[
+180 \times 244 \times 24 \times 365 \times 60 \approx 23 \cdot 10^9
+\]</span></p>
+</section>
+<section id="use-the-maximum-luke" class="slide level2">
+<h2>Use the maximum (Luke)</h2>
+
+<img data-src="images/dreifing_maximum.gif" class="quarto-figure quarto-figure-center r-stretch"><p><span class="math display">\[
+180 \times 244 \times 60 \approx 2.6 \cdot 10^6
+\]</span></p>
+</section>
+<section id="statistics-of-extremes" class="slide level2">
+<h2>Statistics of Extremes</h2>
+<div class="quarto-layout-panel" data-layout="[40,60]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/fishertippett.jpg" class="quarto-figure quarto-figure-center"></p>
+<figcaption>Fisher &amp; Tippett</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/theorem3.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="central-limits-vs-extremes" class="slide level2">
+<h2>Central Limits vs Extremes</h2>
+<p><span class="math display">\[
+\scriptsize{
+\begin{aligned}
+X_1, \dots, X_n &amp;\sim F(x) \\
+S_n &amp;= X_1 + \dots + X_n \\
+M_n &amp;= \max{\{X_1, \dots, X_n\}}
+\end{aligned}
+}
+\]</span></p>
+<p><br></p>
+<div class="{columns}">
+<div class="column" style="width:49%;">
+<p>Central Limit Problem</p>
+<p><span class="math display">\[
+\scriptsize{
+\frac{S_n - a_n}{b_n} \rightarrow G(x)?
+}
+\]</span></p>
+</div>
+<div class="column" style="width:49%;">
+<p>Extreme Value Problem</p>
+<p><span class="math display">\[
+\scriptsize{
+\frac{M_n - a_n}{b_n} \rightarrow G(x)?
+}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="exponential-example-fx-1---e-x" class="slide level2">
+<h2>Exponential example: <span class="math inline">\(F(x) = 1 - e^{-x}\)</span></h2>
+<p><span class="math display">\[
+\scriptsize{
+\begin{aligned}
+P\left(
+\frac{M_n - a_n}{b_n} \leq x
+\right) =
+P\left(M_n \leq a_n + b_nx \right) =
+\left[1 - e^{-(a_n + b_nx)}\right]^n
+\end{aligned}
+}
+\]</span></p>
+<p>Choose <span class="math display">\[
+\scriptsize{
+a_n = \ln(n) = F^{-1}(1 - n^{-1})
+\qquad
+b_n = 1
+}
+\]</span></p>
+<p>Then we get</p>
+<p><span class="math display">\[
+\scriptsize{
+P\left(M_n \leq a_n + b_nx \right) =
+\left[1 - n^{-1}e^{-x}\right]^n \rightarrow \exp{\{-e^{-x}\}}
+}
+\]</span></p>
+<p>This is the <a href="https://en.wikipedia.org/wiki/Gumbel_distribution">Gumbel distribution</a></p>
 </section>
 <section id="generalized-extreme-value-distribution" class="slide level2">
 <h2>Generalized Extreme Value Distribution</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><span class="math display">\[
+F(x) = e^{-\left[
+1 + \xi \left(
+\frac{x - \tilde{\mu}}{\sigma}
+\right)
+\right]^{-1/\xi}
+} \\
+\tilde\mu = \mu \cdot [1 + \Delta \cdot (t - t_0)]
+\]</span></p>
+<p style="color:#99000d;text-align:center">
+Station 1 <span class="math inline">\((\mu_1, \sigma_1, \xi_1, \Delta_1)\)</span>
+</p>
+<p style="color:#ff7f00;text-align:center">
+Station 2 <span class="math inline">\((\mu_2, \sigma_2, \xi_2, \Delta_1)\)</span>
+</p>
+<p style="color:#0570b0;text-align:center">
+Station 3 <span class="math inline">\((\mu_3, \sigma_3, \xi_3, \Delta_1)\)</span>
+</p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/stations.png"></p>
+</div>
+</div>
 </section>
 <section id="spatial-models" class="slide level2">
 <h2>Spatial Models</h2>

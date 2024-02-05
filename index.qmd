@@ -31,13 +31,181 @@ library(sf)
 theme_set(theme_bggj())
 ```
 
-## PhD {data-name="About Me"}
+## About me {data-name="About Me"}
 
 ## Interests
 
+::: {layout="[[1, 1]]"}
+
+![](images/binni_rugby.jpg)
+
+![](images/binni_metill.png)
+
+:::
+
+## Statistics
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![](images/binni_veggspjald.jpg)
+:::
+
+::: {.column width="55%"}
+
+![](images/covid_dashboard.png)
+
+![](images/stancon.png)
+
+:::
+
+::::
+
 ## Extreme Precipitation {data-name="Background"}
 
+![](images/phd_nafn.png){fig-align=center width=50% .m-0 .p-0}
+
+::: {layout="[50,50]"}
+
+![](images/flod1.jpg){fig-align=center width=450px .mt-0 .pt-0}
+
+![](images/flod2.jpg){fig-align=center width=450px .mt-0 .pt-0}
+
+:::
+
+## United Kingdom Climate Projections
+
+![](images/max_precip.png){fig-align=center}
+
+$$
+180 \times 244 \times 24 \times 365 \times 60 \approx 23 \cdot 10^9
+$$
+
+## Use the maximum (Luke)
+
+![](images/dreifing_maximum.gif){fig-align=center}
+
+$$
+180 \times 244 \times 60 \approx 2.6 \cdot 10^6
+$$
+
+## Statistics of Extremes
+
+::: {layout="[40,60]"}
+
+![Fisher & Tippett](images/fishertippett.jpg){fig-align=center}
+
+![](images/theorem3.png){fig-align=center}
+
+:::
+
+## Central Limits vs Extremes
+
+$$
+\scriptsize{
+\begin{aligned}
+X_1, \dots, X_n &\sim F(x) \\
+S_n &= X_1 + \dots + X_n \\
+M_n &= \max{\{X_1, \dots, X_n\}}
+\end{aligned}
+}
+$$
+
+<br>
+
+::: {columns}
+
+::: {.column width="49%"}
+
+Central Limit Problem
+
+$$
+\scriptsize{
+\frac{S_n - a_n}{b_n} \rightarrow G(x)?
+}
+$$
+
+:::
+
+::: {.column width="49%"}
+
+Extreme Value Problem
+
+$$
+\scriptsize{
+\frac{M_n - a_n}{b_n} \rightarrow G(x)?
+}
+$$
+:::
+
+:::
+
+## Exponential example:  $F(x) = 1 - e^{-x}$
+
+$$
+\scriptsize{
+\begin{aligned}
+P\left(
+\frac{M_n - a_n}{b_n} \leq x
+\right) =
+P\left(M_n \leq a_n + b_nx \right) =
+\left[1 - e^{-(a_n + b_nx)}\right]^n
+\end{aligned}
+}
+$$
+
+Choose 
+$$
+\scriptsize{
+a_n = \ln(n) = F^{-1}(1 - n^{-1})
+\qquad
+b_n = 1
+}
+$$
+
+Then we get
+
+$$
+\scriptsize{
+P\left(M_n \leq a_n + b_nx \right) =
+\left[1 - n^{-1}e^{-x}\right]^n \rightarrow \exp{\{-e^{-x}\}}
+}
+$$
+
+This is the [Gumbel distribution](https://en.wikipedia.org/wiki/Gumbel_distribution)
+
 ## Generalized Extreme Value Distribution
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+$$
+F(x) = e^{-\left[
+1 + \xi \left(
+\frac{x - \tilde{\mu}}{\sigma}
+\right)
+\right]^{-1/\xi}
+} \\
+\tilde\mu = \mu \cdot [1 + \Delta \cdot (t - t_0)]
+$$
+
+<p style='color:#99000d;text-align:center'>Station 1 $(\mu_1, \sigma_1, \xi_1, \Delta_1)$</p>
+
+<p style='color:#ff7f00;text-align:center'>Station 2 $(\mu_2, \sigma_2, \xi_2, \Delta_1)$</p>
+
+<p style='color:#0570b0;text-align:center'>Station 3 $(\mu_3, \sigma_3, \xi_3, \Delta_1)$</p>
+
+:::
+
+::: {.column width="40%"}
+
+![](images/stations.png)
+
+:::
+
+:::
 
 ## Spatial Models
 

@@ -1,0 +1,8 @@
+---
+title: "Multivariate Generalized Extreme Value Distributions and Gaussian Copulas"
+format: pdf
+pagenumbering: none
+bibliography: references.bib
+---
+
+In this talk, I will present my PhD research on incorporating data-level spatial correlations in the Generalized Extreme Value (GEV) distribution for improved modeling of extreme precipitation in large datasets. We can relatively easily add spatial dependence to the parameters governing each location's GEV distribution *(nearby locations have similar parameter values)*, but we also need to model the dependence in the observed data itself *(i.e. extreme events happen at similar times in nearby locations)*. By using copulas, multivariate distributions with all univariate margins being Uniform(0, 1) distributed, we might be able to more accurately represent the data-level correlations while aiming to keep the computation-time feasible. The talk ends with results from a simulation study showing how this might be accomplished in a 1-dimensional process with GEV margins and dependence described by a AR(1) Gaussian copula.
