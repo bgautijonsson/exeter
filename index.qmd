@@ -31,9 +31,9 @@ library(sf)
 theme_set(theme_bggj())
 ```
 
-## About me {data-name="About Me"}
 
-## Interests
+
+## Interests {data-name="About Me"}
 
 ::: {layout="[[1, 1]]"}
 
