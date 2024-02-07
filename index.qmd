@@ -322,7 +322,7 @@ Three models:
 ![](images/ar1_precmatrix.png){fig-align=center}
 
 
-## Copula in Stan
+## 
 
 :::: {.columns}
 
@@ -332,13 +332,47 @@ Three models:
 
 ::: {.column width="50%"}
 
-![](images/ar1_code.png){fig-align=center}
-
+![](images/copula_stan_code2.png){fig-align=center}
 ![](images/copula_stan_code.png){fig-align=center}
 :::
 
 ::::
 
+## Three-Step Model
+
+![](images/normal_prec_identities.png){fig-align=center}
+
+## Three-Step Model cont.
+
+1. Estimate the marginal distributions
+2. Use the empirical CDFs to transform the data into uniformly distributed variables
+3. Transform these uniformly distributed variables into standard normal variables
+4. Estimate the precision matrix using these variables
+5. Make sure the precision matrix is semi-positive definite and normalize it so that its inverse is a correlation matrix
+6. Re-estimate the marginal distributions with a gaussian copula assuming this precision matrix is known
 
 
 
+## Results
+
+![](https://raw.githubusercontent.com/bgautijonsson/stan_experiments/master/Results/Figures/param_errors.png){fig-align=center}
+
+## 
+
+![](https://raw.githubusercontent.com/bgautijonsson/stan_experiments/master/Results/Figures/elppd.png){fig-align=center}
+
+## 
+
+![](https://raw.githubusercontent.com/bgautijonsson/stan_experiments/master/Results/Figures/diff_elppd.png){fig-align=center}
+
+## Review
+
+* Marginal GEV distributions
+* Not enough to model spatial dependency only on parameter level if we want to predict for the whole system
+* Three-step model can get close to the true model with enough replicates
+
+**Next steps**
+
+* Simulation study with 2d spatial copula
+* Gaussian vs t-copula
+* Apply this methodology to the UKCP data

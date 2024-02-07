@@ -634,8 +634,8 @@ H(\mathbf x) = C(F_1(x_1), \dots, F_d(x_d)).
 <h2>Precision Matrix</h2>
 
 <img data-src="images/ar1_precmatrix.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="copula-in-stan" class="slide level2">
-<h2>Copula in Stan</h2>
+<section id="section-1" class="slide level2">
+<h2></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -644,18 +644,50 @@ H(\mathbf x) = C(F_1(x_1), \dots, F_d(x_d)).
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/ar1_code.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/copula_stan_code.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
+<p><img data-src="images/copula_stan_code2.png" class="quarto-figure quarto-figure-center"> <img data-src="images/copula_stan_code.png" class="quarto-figure quarto-figure-center"></p>
 </div>
 </div>
-</div>
+</section>
+<section id="three-step-model" class="slide level2">
+<h2>Three-Step Model</h2>
+
+<img data-src="images/normal_prec_identities.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="three-step-model-cont." class="slide level2">
+<h2>Three-Step Model cont.</h2>
+<ol type="1">
+<li>Estimate the marginal distributions</li>
+<li>Use the empirical CDFs to transform the data into uniformly distributed variables</li>
+<li>Transform these uniformly distributed variables into standard normal variables</li>
+<li>Estimate the precision matrix using these variables</li>
+<li>Make sure the precision matrix is semi-positive definite and normalize it so that its inverse is a correlation matrix</li>
+<li>Re-estimate the marginal distributions with a gaussian copula assuming this precision matrix is known</li>
+</ol>
+</section>
+<section id="results" class="slide level2">
+<h2>Results</h2>
+
+<img data-src="https://raw.githubusercontent.com/bgautijonsson/stan_experiments/master/Results/Figures/param_errors.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+
+<img data-src="https://raw.githubusercontent.com/bgautijonsson/stan_experiments/master/Results/Figures/elppd.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="https://raw.githubusercontent.com/bgautijonsson/stan_experiments/master/Results/Figures/diff_elppd.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="review" class="slide level2">
+<h2>Review</h2>
+<ul>
+<li>Marginal GEV distributions</li>
+<li>Not enough to model spatial dependency only on parameter level if we want to predict for the whole system</li>
+<li>Three-step model can get close to the true model with enough replicates</li>
+</ul>
+<p><strong>Next steps</strong></p>
+<ul>
+<li>Simulation study with 2d spatial copula</li>
+<li>Gaussian vs t-copula</li>
+<li>Apply this methodology to the UKCP data</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
