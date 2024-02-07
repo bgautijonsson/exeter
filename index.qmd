@@ -62,7 +62,7 @@ theme_set(theme_bggj())
 
 ::::
 
-## Extreme Precipitation {data-name="Background"}
+## Extreme Precipitation {data-name="Extreme Values"}
 
 ![](images/phd_nafn.png){fig-align=center width=50% .m-0 .p-0}
 
@@ -175,7 +175,7 @@ $$
 
 This is the [Gumbel distribution](https://en.wikipedia.org/wiki/Gumbel_distribution)
 
-## Generalized Extreme Value Distribution
+## Spatial Modeling {data-name="Spatial Modeling"}
 
 ::: {.columns}
 
@@ -184,11 +184,11 @@ This is the [Gumbel distribution](https://en.wikipedia.org/wiki/Gumbel_distribut
 $$
 F(x) = e^{-\left[
 1 + \xi \left(
-\frac{x - \tilde{\mu}}{\sigma}
+\frac{x - \mu_t}{\sigma}
 \right)
 \right]^{-1/\xi}
 } \\
-\tilde\mu = \mu \cdot [1 + \Delta \cdot (t - t_0)]
+\mu_t = \mu \cdot [1 + \Delta \cdot (t - t_0)]
 $$
 
 <p style='color:#99000d;text-align:center'>Station 1 $(\mu_1, \sigma_1, \xi_1, \Delta_1)$</p>
@@ -207,20 +207,138 @@ $$
 
 :::
 
-## Spatial Models
+## Conditional Autoregression (CAR)
 
-## Copulas
+$$
+x_i \vert x_{-i} \sim \mathrm{Normal}\left( \sum_{j\in S_i} w_{ij}x_j, \sigma^2 \right)
+$$
 
-## UKCP {data-name="Data"}
+$$
+x \sim \mathrm{Normal}\left(0, Q\right)
+$$
 
-## Other Stuff
+$$
+Q = D(I - \alpha A) \\
+A_{ij} = 1 \iff x_j \in S_i
+$$
 
-## I.i.d. {data-name="Models"}
+## Intrinsic CAR
 
-## AR(1)
+$$
+Q = D(I - A)
+$$
 
-## Spatial effects {data-name="Results"}
+$$
+x \sim \exp\left(-\frac12 \sum_{j\in S_i}{(x_i - x_j)^2}\right)
+$$
 
-## Other results
+Not proper, but can add constraint $\sum x_i = 0$
 
-## Stuff happened {data-name="Discussion"}
+## Besag York Mollié (BYM)
+
+* An ICAR component $\phi$
+* An iid non-spatial component $\theta$
+* Use the BYM2 formulation
+
+$$
+\sigma \cdot \left( \sqrt{\rho} \cdot \frac{\phi^*}{\sqrt s} + \sqrt{1 - \rho} \cdot\theta^* \right)
+$$
+
+## 
+
+![](images/stan_bym3.png){fig-align=center}
+
+## BYM2 Parameters
+
+![](images/bym_table.png){fig-align=center}
+
+## Spatial Distribution (Unconstrained scale)
+
+![](images/facet_unconstrained.png){fig-align=center}
+
+## Spatial Distribution (Original scale)
+
+![](images/facet_constrained.png){fig-align=center}
+
+## Current model
+
+* Spatial dependence in GEV parameters
+* Extreme events happen similarly often in neighboring locations
+
+
+## We want
+
+* Spatial dependence in GEV parameters **AND observations**
+* Extreme events happen similarly often in neighboring locations
+* Extreme events happen **at similar times** in neighboring locations
+
+## Copulas {data-name="Copulas"}
+
+> a multivariate distribution function with standard uniform univariate margins, that is, U(0, 1) margins.
+>
+> - Hofert et al., Elements of Copula Modeling with R
+
+For any d-dimensional distribution function, $H$, with univariate margins $F_1, \dots, F_d$, there exists a d-dimensional copula, $C$, such that
+
+$$
+H(\mathbf x) = C(F_1(x_1), \dots, F_d(x_d)).
+$$
+
+
+## Gaussian Copula
+
+![](images/gaussian_copula1.png){fig-align=center}
+
+## Sampling from the Gaussian Copula
+
+![](images/gaussian_copula2.png){fig-align=center}
+
+## Example
+
+![](images/copula_example1.png){fig-align=center}
+
+## Data Generating Process {data-name="Simulated Example"}
+
+1. Generate a correlation matrix, R, based on an AR(1) process
+2. Generate multivariate normal variates with mean zero and covariance matrix R.
+3. Transform to GEV by applying normal CDF and GEV quantile functions
+
+Then fit three types of models to the data and hope to estimate the underlying copula parameters
+
+## Models
+
+Three models:
+
+* Correct model with GEV margins and dependency modeled by an AR(1) copula
+* Model with GEV margins and an i.i.d. Copula (no depenence in observations)
+* A three-step model where we just tell the model which parts of the precision matrix for the Gaussian copula are non-zero.
+
+## Example Data
+
+![](images/copula_data_ar1.png){fig-align=center}
+
+## Precision Matrix
+
+![](images/ar1_precmatrix.png){fig-align=center}
+
+
+## Copula in Stan
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](images/copula_loglikelihood.png){fig-align=center}
+:::
+
+::: {.column width="50%"}
+
+![](images/ar1_code.png){fig-align=center}
+
+![](images/copula_stan_code.png){fig-align=center}
+:::
+
+::::
+
+
+
+
